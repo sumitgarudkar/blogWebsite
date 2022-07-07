@@ -1,0 +1,11 @@
+<%- include("partials/header"); -%>
+
+    <h1>Home</h1>
+    <p><%= homeContent %></p>
+
+    <% blogs.forEach(function(blog){ %>
+        <h1><%= blog.title %> <span class="authorName"> <%= blog.author %></span> </h1> 
+        <p><%= blog.content.substring(0,98)+"..." %><a href="/posts/<%= blog._id %>">Read More</a></p> 
+    <%}); %>
+
+<%- include("partials/footer"); -%>
