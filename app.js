@@ -4,6 +4,9 @@ const ejs = require("ejs");
 const mongoose = require("mongoose");
 const _ = require("lodash");
 
+const dotenv = require("dotenv");
+dotenv.config();
+
 const homeStartingContent = "Adipisicing cillum minim duis irure et in eiusmod ullamco exercitation eu voluptate aute minim amet. Eiusmod pariatur ut aute cupidatat occaecat ex elit aliqua mollit aute pariatur. Eu Lorem magna ipsum occaecat. Non non magna exercitation proident Lorem reprehenderit consequat anim velit nisi et esse eiusmod cillum. Velit veniam excepteur do mollit eiusmod. Non irure est pariatur dolore ad culpa in aliqua esse consectetur incididunt quis irure occaecat. Ex eiusmod deserunt ex ex mollit.";
 const aboutContent = "Consectetur exercitation nostrud mollit consectetur esse sint. Consectetur laborum sint cupidatat cillum elit fugiat tempor. Mollit fugiat enim quis sunt. Pariatur sint ex qui dolore cupidatat sunt aliquip ipsum qui nulla veniam. Occaecat quis est reprehenderit esse exercitation id.";
 const contactContent = "In deserunt dolor sit excepteur anim. Fugiat dolore elit exercitation fugiat sint proident. Aute in commodo ad laborum ut eu eiusmod do enim laborum ex fugiat. Consectetur cillum esse mollit enim ad eiusmod dolor proident. Deserunt excepteur esse Lorem ex consequat deserunt irure qui commodo nulla incididunt ullamco voluptate anim. Exercitation ad laborum eiusmod nulla ut esse. Fugiat qui laboris cupidatat nisi sint reprehenderit consequat consequat veniam ad Lorem veniam laborum officia.";
@@ -15,7 +18,7 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static("public"));
 
-mongoose.connect("mongodb+srv://sumitgarudkar:test12345@cluster0.tjtaiuv.mongodb.net/blogDB")
+mongoose.connect(process.env.DATABASE_URI)
 
 const blogSchema = {
     title: String,
